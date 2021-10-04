@@ -1,9 +1,9 @@
 module.exports = {
   extends: [
-    "react-app",
     "plugin:import/recommended",
     "plugin:import/typescript",
     "plugin:jsx-a11y/recommended",
+    "react-app",
     "plugin:prettier/recommended",
   ],
   plugins: ["jsx-a11y", "prettier"],
