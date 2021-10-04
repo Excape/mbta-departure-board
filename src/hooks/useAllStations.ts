@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Station } from "../models/station.model";
-import { findRailStations } from "./mbta.api";
+import { findRailStations } from "../api/mbta-api";
 
 function useAllStations(): Station[] | null {
   const [stations, setStations] = useState<Station[] | null>(null);

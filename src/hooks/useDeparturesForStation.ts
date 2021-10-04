@@ -1,7 +1,7 @@
 import { parseJSON } from "date-fns";
 import { useEffect, useState } from "react";
 import { Departure } from "../models/departure.model";
-import { findScheduledDeparturesForStation } from "./mbta.api";
+import { findScheduledDeparturesForStation } from "../api/mbta-api";
 
 function useDeparturesForStation(stationId: string): Departure[] | null {
   const [departures, setDepartures] = useState<Departure[] | null>(null);

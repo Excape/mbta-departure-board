@@ -1,4 +1,4 @@
-import useDeparturesForStation from "../api/useDeparturesForStation";
+import useDeparturesForStation from "../hooks/useDeparturesForStation";
 import { Station } from "../models/station.model";
 
 interface Props {
