@@ -2,16 +2,35 @@ import SelectStation from "./components/SelectStation";
 import React, { useState } from "react";
 import { Station } from "./models/station.model";
 import DepartureBoard from "./components/DepartureBoard";
+import styled from "@emotion/styled";
+import { Typography } from "@mui/material";
+
+const RootContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const AppContainer = styled.div`
+  width: calc(100vw - 2em);
+  max-width: 1024px;
+  margin-top: 2em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+`;
 
 function App() {
-  // const predictions = usePredictionsForSouthStation();
   const [selectedStation, setSelectedStation] = useState<Station | null>(null);
 
   return (
-    <div className="App">
-      <SelectStation onStationSelect={setSelectedStation} />
-      {selectedStation && <DepartureBoard station={selectedStation} />}
-    </div>
+    <RootContainer>
+      <AppContainer>
+        <Typography variant="h3">Commuter Rail Departures</Typography>
+        <SelectStation onStationSelect={setSelectedStation} />
+        {selectedStation && <DepartureBoard station={selectedStation} />}
+      </AppContainer>
+    </RootContainer>
   );
 }
 export default App;

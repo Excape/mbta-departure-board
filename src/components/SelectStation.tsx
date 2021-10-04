@@ -18,7 +18,7 @@ function SelectStation({ onStationSelect }: Props) {
         disablePortal
         options={options || []}
         disableClearable
-        sx={{ width: 300 }}
+        sx={{ width: "100%", maxWidth: 500 }}
         renderInput={(params: any) => (
           <TextField {...params} label="Select a station..." />
         )}
