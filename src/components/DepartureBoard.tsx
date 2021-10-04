@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, List, ListItem } from "@mui/material";
+import { Alert, Card, CircularProgress, List, ListItem } from "@mui/material";
 import useDeparturesForStation from "../hooks/useDeparturesForStation";
 import { Station } from "../models/station.model";
 import DepartureCard from "./DepartureCard";
@@ -9,10 +9,13 @@ interface Props {
 }
 
 function DepartureBoard(props: Props) {
-  const departures = useDeparturesForStation(props.station.id);
+  const { departures, isLoading } = useDeparturesForStation(props.station.id);
+  if (isLoading) {
+    return <CircularProgress />;
+  }
   return (
     <Card>
-      {departures && (
+      {departures ? (
         <List>
           {departures.map((departure) => (
             <ListItem key={departure.scheduleId}>
@@ -20,6 +23,8 @@ function DepartureBoard(props: Props) {
             </ListItem>
           ))}
         </List>
+      ) : (
+        <Alert severity="info">No departures found</Alert>
       )}
     </Card>
   );

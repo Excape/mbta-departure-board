@@ -17,14 +17,14 @@ function DepartureCard({ departure }: { departure: Departure }) {
       "n p";
 
     ${bp["aboveTablet"]} {
-      grid-template-columns: 2fr 1fr 1fr 1fr;
+      grid-template-columns: 35% 15% 25% 25%;
       grid-template-areas:
         "d n t s"
         "nr . . p";
     }
 
     ${bp["aboveLaptop"]} {
-      grid-template-columns: 2fr repeat(4, 1fr);
+      grid-template-columns: 30% 15% 15% 25% 15%;
       grid-template-areas:
         "d nr n t s"
         ". . . . p";

@@ -3,18 +3,21 @@ import { useEffect, useState } from "react";
 import { Departure } from "../models/departure.model";
 import { findScheduledDeparturesForStation } from "../api/mbta-api";
 
-function useDeparturesForStation(stationId: string): Departure[] | null {
+function useDeparturesForStation(stationId: string) {
   const [departures, setDepartures] = useState<Departure[] | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    findScheduledDeparturesForStation(stationId, new Date())
+    setIsLoading(true);
+    findScheduledDeparturesForStation(stationId, new Date(), 10)
       .then((result: any) => result.data.map(convertMbtaScheduleToDeparture))
       .then((departures: Departure[]) => {
         setDepartures(departures);
+        setIsLoading(false);
       });
   }, [stationId]);
 
-  return departures;
+  return { departures, isLoading };
 }
 
 function convertMbtaScheduleToDeparture(schedule: any): Departure {

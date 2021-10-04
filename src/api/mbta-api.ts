@@ -12,16 +12,18 @@ export async function findRailStations(): Promise<any[]> {
 
 export async function findScheduledDeparturesForStation(
   stationId: string,
-  departsAfter: Date
+  departsAfter: Date,
+  limit: number
 ): Promise<any[]> {
+  console.log(departsAfter);
   return mbtaApi.findAll("schedule", {
-    page: { limit: 10 },
+    page: { limit: limit },
     sort: "departure_time",
     include: "route,trip,prediction.stop",
     filter: {
       stop: stationId,
       date: format(departsAfter, "yyyy-MM-dd"),
-      min_time: format(departsAfter, "HH:MM"),
+      min_time: format(departsAfter, "HH:mm"),
       route_type: 2, // 2 = (Commuter) Rail
     },
     fields: {

@@ -5,11 +5,10 @@ import { findRailStations } from "../api/mbta-api";
 function useAllStations(): Station[] | null {
   const [stations, setStations] = useState<Station[] | null>(null);
   useEffect(() => {
-    findRailStations().then((result: any) => {
-      const parentStations = collectParentStations(result.data);
-      const stations = mapMbtaStationsToStations(parentStations);
-      setStations(stations);
-    });
+    findRailStations()
+      .then((result: any) => collectParentStations(result.data))
+      .then((parentStations) => mapMbtaStationsToStations(parentStations))
+      .then((stations) => setStations(stations));
   }, []);
 
   return stations;
