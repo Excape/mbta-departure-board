@@ -1,4 +1,5 @@
 import { render, screen } from "@testing-library/react";
+
 import DepartureBoard from "./DepartureBoard";
 
 const testStation = { id: "foo", name: "bar" };

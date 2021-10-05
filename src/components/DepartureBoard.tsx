@@ -1,7 +1,9 @@
-import React from "react";
 import { Alert, Card, CircularProgress, List, ListItem } from "@mui/material";
+import React from "react";
+
 import useDeparturesForStation from "../hooks/useDeparturesForStation";
 import { Station } from "../models/station.model";
+
 import DepartureCard from "./DepartureCard";
 
 interface Props {

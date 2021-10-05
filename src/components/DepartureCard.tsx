@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import { Card, Chip, Typography } from "@mui/material";
 import format from "date-fns/format";
 import React from "react";
+
 import { Departure } from "../models/departure.model";
 import { bp } from "../styling/breakpoints";
 
