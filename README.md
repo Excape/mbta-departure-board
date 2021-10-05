@@ -1,4 +1,4 @@
-# MBTA Departure board
+# MBTA Departure Board
 
 ![GitHub branch checks state](https://img.shields.io/github/checks-status/excape/mbta-departure-board/main?label=build)
 
