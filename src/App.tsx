@@ -1,9 +1,10 @@
-import SelectStation from "./components/SelectStation";
-import React, { useState } from "react";
-import { Station } from "./models/station.model";
-import DepartureBoard from "./components/DepartureBoard";
 import styled from "@emotion/styled";
 import { Typography } from "@mui/material";
+import React, { useState } from "react";
+
+import DepartureBoard from "./components/DepartureBoard";
+import SelectStation from "./components/SelectStation";
+import { Station } from "./models/station.model";
 
 const RootContainer = styled.div`
   display: flex;
