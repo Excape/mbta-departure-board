@@ -8,6 +8,26 @@
 
 ![screenshot](screenshot.png)
 
+## Install / Usage
+
+To install:
+
+```
+npm install
+```
+
+To start:
+
+```
+npm run start
+```
+
+To run tests:
+
+```
+npm run test
+```
+
 ## Description
 
 This React app uses the [MBTA JSON API](https://www.mbta.com/developers/v3-api) to fetch the current departures of commuter rail stations, including live predictions if the train is on time and what platform it is leaving from (if available).
