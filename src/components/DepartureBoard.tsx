@@ -11,11 +11,12 @@ interface Props {
 function DepartureBoard(props: Props) {
   const { departures, isLoading } = useDeparturesForStation(props.station.id);
   if (isLoading) {
-    return <CircularProgress />;
+    return <CircularProgress data-testid="spinner" />;
   }
+
   return (
     <Card>
-      {departures ? (
+      {departures && departures.length ? (
         <List>
           {departures.map((departure) => (
             <ListItem key={departure.scheduleId}>
@@ -24,7 +25,9 @@ function DepartureBoard(props: Props) {
           ))}
         </List>
       ) : (
-        <Alert severity="info">No departures found</Alert>
+        <Alert severity="info" data-testid="no-departures">
+          No departures found
+        </Alert>
       )}
     </Card>
   );

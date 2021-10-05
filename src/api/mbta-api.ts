@@ -15,7 +15,6 @@ export async function findScheduledDeparturesForStation(
   departsAfter: Date,
   limit: number
 ): Promise<any[]> {
-  console.log(departsAfter);
   return mbtaApi.findAll("schedule", {
     page: { limit: limit },
     sort: "departure_time",

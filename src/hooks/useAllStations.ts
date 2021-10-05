@@ -19,6 +19,8 @@ function mapMbtaStationsToStations(mbtaResult: any[]): Station[] {
 }
 
 function collectParentStations(stations: any[]) {
+  // because the MBTA API is only giving us the "sub" stops (like a specific platform, not the whole station), we need to refer to their "parent" to get
+  // the actual station
   return stations.map((station) => station.parent_station);
 }
 
